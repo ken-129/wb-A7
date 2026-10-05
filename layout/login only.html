@@ -1,11 +1,35 @@
-<h1>Registration Form</h1>
-<form action="/submit" method="POST">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
-  <label for="email">Email:</label>
-  <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
 
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password" placeholder="Enter your password" required><br><br>
-  <label for="confirm">Confirm Password:</label>
-  <input type="password" id="confirm" name="confirm" placeholder="Confirm your password" required><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
+<body>
+  <h1>Login</h1>
+  <form action="/login" method="POST">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+ 
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="Enter your password" minlength="8" required><br><br>
+ 
+    <input type="checkbox" id="show" onclick="togglePassword()">
+    <label for="show">Show password</label><br><br>
+ 
+    <input type="submit" value="Login">
+    <input type="reset" value="Clear">
+  </form>
+ 
+  <p>Don't have an account? <a href="registration.html">Register here</a></p>
+ 
+  <script>
+    function togglePassword() {
+      const pass = document.getElementById("password");
+      pass.type = pass.type === "password" ? "text" : "password";
+    }
+  </script>
+</body>
+</html>
+ 
