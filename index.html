@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamza Ahmad Khan | Portfolio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Page layout: header on top, footer pushed to the bottom */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header: name on the left, navbar on the right */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 16px 32px;
+            background: #222;
+            color: white;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Navbar: list items in a row */
+        nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main takes up all the leftover space */
+        main {
+            flex: 1;
+            padding: 24px 32px;
+        }
+
+        /* About: picture and text side by side */
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        figure {
+            margin: 0;
+        }
+
+        /* Skills: shown as a row of boxes */
+        #skills ul {
+            display: flex;
+            gap: 12px;
+            list-style: none;
+            padding: 0;
+        }
+
+        #skills li {
+            padding: 8px 16px;
+            border: 1px solid #222;
+            border-radius: 4px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 16px;
+            background: #222;
+            color: white;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hamza Ahmad Khan</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#scores">Sample Scores</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <figure>
+                    <img src="fli.jpg" alt="Profile picture of Hamza Ahmad Khan" width="200">
+                    <figcaption>Hamza Ahmad Khan</figcaption>
+                </figure>
+                <p>I am still learning the basics of HTML and CSS.</p>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>My Education</h2>
+            <p>
+                I am currently studying at KIET (Deemed to be University),
+                pursuing a B.Tech in CSE (AI).
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>My Skills</h2>
+            <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+            </ul>
+        </section>
+
+        <section id="scores">
+            <h2>Sample Scores</h2>
+            <table border="1" cellpadding="8">
+                <caption>HTML and CSS scores</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">HTML</th>
+                        <th scope="col">CSS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alice</td>
+                        <td>90</td>
+                        <td>95</td>
+                    </tr>
+                    <tr>
+                        <td>Bob</td>
+                        <td>67</td>
+                        <td>97</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; Hamza Ahmad Khan</p>
+    </footer>
+
+</body>
+</html>
