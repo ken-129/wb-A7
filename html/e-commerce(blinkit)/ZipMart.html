@@ -10,13 +10,23 @@
 <body>
 
 <!-- Header -->
-<header>
+<header id="home">
   <div class="wrap header-row">
     <div class="logo">zip<span>mart</span></div>
     <div class="delivery"><b>Delivery in 10 minutes</b></div>
-    <div class="search"><input type="search" placeholder='Search "milk", "chips", "apple"'></div>
-    <button class="cart-btn">🛒 My Cart</button>
+    <div class="search"><input id="searchBox" type="search" placeholder='Search "milk", "chips", "apple"'></div>
+    <button class="cart-btn" id="openCart">🛒 My Cart (<span id="cartCount">0</span>)</button>
   </div>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="wrap nav-links">
+      <a href="#home">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 </header>
 
 <main class="wrap">
@@ -27,135 +37,19 @@
     <p>Fruits, milk, snacks and daily needs.</p>
   </section>
 
-  <!-- Categories -->
-  <section class="categories">
-    <div class="cat active"><span class="e">🛒</span>All</div>
-    <div class="cat"><span class="e">🥦</span>Fruits & Veggies</div>
-    <div class="cat"><span class="e">🥛</span>Dairy & Eggs</div>
-    <div class="cat"><span class="e">🍟</span>Snacks</div>
-    <div class="cat"><span class="e">🥤</span>Cold Drinks</div>
-    <div class="cat"><span class="e">🍞</span>Bakery</div>
-    <div class="cat"><span class="e">🌾</span>Atta & Rice</div>
-    <div class="cat"><span class="e">🧼</span>Personal Care</div>
-  </section>
+  <!-- Categories (filled in by JavaScript) -->
+  <section class="categories" id="categories"></section>
 
-  <!-- Products -->
-  <h2>All products</h2>
-  <section class="grid">
-    <div class="card">
-      <div class="pic">🍌</div>
-      <div class="name">Fresh Bananas</div>
-      <div class="weight">6 pcs</div>
-      <div class="bottom">
-        <div class="price">₹39<s>₹48</s></div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🍎</div>
-      <div class="name">Royal Gala Apples</div>
-      <div class="weight">4 pcs</div>
-      <div class="bottom">
-        <div class="price">₹149<s>₹179</s></div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🍅</div>
-      <div class="name">Tomato (Local)</div>
-      <div class="weight">500 g</div>
-      <div class="bottom">
-        <div class="price">₹24<s>₹30</s></div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🧅</div>
-      <div class="name">Onion</div>
-      <div class="weight">1 kg</div>
-      <div class="bottom">
-        <div class="price">₹42<s>₹50</s></div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🥛</div>
-      <div class="name">Toned Milk</div>
-      <div class="weight">500 ml</div>
-      <div class="bottom">
-        <div class="price">₹29</div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🥚</div>
-      <div class="name">Farm Eggs</div>
-      <div class="weight">6 pcs</div>
-      <div class="bottom">
-        <div class="price">₹54<s>₹60</s></div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🧈</div>
-      <div class="name">Salted Butter</div>
-      <div class="weight">100 g</div>
-      <div class="bottom">
-        <div class="price">₹58<s>₹62</s></div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🧀</div>
-      <div class="name">Fresh Paneer</div>
-      <div class="weight">200 g</div>
-      <div class="bottom">
-        <div class="price">₹85<s>₹95</s></div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🍟</div>
-      <div class="name">Potato Chips Classic</div>
-      <div class="weight">52 g</div>
-      <div class="bottom">
-        <div class="price">₹20</div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🍪</div>
-      <div class="name">Chocolate Cookies</div>
-      <div class="weight">120 g</div>
-      <div class="bottom">
-        <div class="price">₹35<s>₹40</s></div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🥤</div>
-      <div class="name">Cola Bottle</div>
-      <div class="weight">750 ml</div>
-      <div class="bottom">
-        <div class="price">₹40<s>₹45</s></div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-    <div class="card">
-      <div class="pic">🍞</div>
-      <div class="name">Brown Bread</div>
-      <div class="weight">400 g</div>
-      <div class="bottom">
-        <div class="price">₹48<s>₹52</s></div>
-        <button class="add-btn">ADD</button>
-      </div>
-    </div>
-  </section>
+  <!-- Products (filled in by JavaScript) -->
+  <div id="products">
+    <h2 id="sectionTitle">All products</h2>
+    <section class="grid" id="productGrid"></section>
+  </div>
 
 </main>
 
 <!-- Contact us -->
-<footer class="contact">
+<footer class="contact" id="contact">
   <div class="wrap contact-row">
     <div>
       <h2>Contact us</h2>
@@ -163,14 +57,228 @@
       <p>Phone: +91 98765 43210</p>
       <p>Open every day, 6 AM to 11 PM</p>
     </div>
-    <div class="contact-form">
-      <input type="text" placeholder="Your name">
-      <input type="email" placeholder="Your email">
-      <textarea rows="3" placeholder="Your message"></textarea>
-      <button class="add-btn">Send message</button>
-    </div>
+    <form class="contact-form" id="contactForm">
+      <input type="text" id="contactName" placeholder="Your name" required>
+      <input type="email" placeholder="Your email" required>
+      <textarea rows="3" placeholder="Your message" required></textarea>
+      <button class="add-btn" type="submit">Send message</button>
+      <p id="formMsg"></p>
+    </form>
   </div>
 </footer>
+
+<!-- Cart (slides in when you click My Cart) -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head">
+    <h3>My Cart</h3>
+    <button class="close" id="closeCart">✕</button>
+  </div>
+  <div class="drawer-body" id="cartBody"></div>
+  <div class="drawer-foot">
+    <button class="order-btn" id="orderBtn">Place order</button>
+  </div>
+</aside>
+
+<script>
+// ---------- 1. DATA ----------
+const categories = [
+  { key: "all",     label: "All",              emoji: "🛒" },
+  { key: "fruits",  label: "Fruits & Veggies", emoji: "🥦" },
+  { key: "dairy",   label: "Dairy & Eggs",     emoji: "🥛" },
+  { key: "snacks",  label: "Snacks",           emoji: "🍟" },
+  { key: "drinks",  label: "Cold Drinks",      emoji: "🥤" },
+  { key: "bakery",  label: "Bakery",           emoji: "🍞" },
+  { key: "staples", label: "Atta & Rice",      emoji: "🌾" },
+  { key: "care",    label: "Personal Care",    emoji: "🧼" }
+];
+
+const products = [
+  { id: 1,  emoji: "🍌", name: "Fresh Bananas",        weight: "6 pcs",   price: 39,  mrp: 48,  cat: "fruits" },
+  { id: 2,  emoji: "🍎", name: "Royal Gala Apples",    weight: "4 pcs",   price: 149, mrp: 179, cat: "fruits" },
+  { id: 3,  emoji: "🍅", name: "Tomato (Local)",       weight: "500 g",   price: 24,  mrp: 30,  cat: "fruits" },
+  { id: 4,  emoji: "🧅", name: "Onion",                weight: "1 kg",    price: 42,  mrp: 50,  cat: "fruits" },
+  { id: 5,  emoji: "🥛", name: "Toned Milk",           weight: "500 ml",  price: 29,  mrp: 29,  cat: "dairy" },
+  { id: 6,  emoji: "🥚", name: "Farm Eggs",            weight: "6 pcs",   price: 54,  mrp: 60,  cat: "dairy" },
+  { id: 7,  emoji: "🧈", name: "Salted Butter",        weight: "100 g",   price: 58,  mrp: 62,  cat: "dairy" },
+  { id: 8,  emoji: "🧀", name: "Fresh Paneer",         weight: "200 g",   price: 85,  mrp: 95,  cat: "dairy" },
+  { id: 9,  emoji: "🍟", name: "Potato Chips Classic", weight: "52 g",    price: 20,  mrp: 20,  cat: "snacks" },
+  { id: 10, emoji: "🍪", name: "Chocolate Cookies",    weight: "120 g",   price: 35,  mrp: 40,  cat: "snacks" },
+  { id: 11, emoji: "🥤", name: "Cola Bottle",          weight: "750 ml",  price: 40,  mrp: 45,  cat: "drinks" },
+  { id: 12, emoji: "🧃", name: "Orange Juice",         weight: "1 L",     price: 99,  mrp: 120, cat: "drinks" },
+  { id: 13, emoji: "🍞", name: "Brown Bread",          weight: "400 g",   price: 48,  mrp: 52,  cat: "bakery" },
+  { id: 14, emoji: "🌾", name: "Whole Wheat Atta",     weight: "5 kg",    price: 245, mrp: 270, cat: "staples" },
+  { id: 15, emoji: "🍚", name: "Basmati Rice",         weight: "1 kg",    price: 129, mrp: 150, cat: "staples" },
+  { id: 16, emoji: "🧼", name: "Bathing Soap",         weight: "3 x 75g", price: 120, mrp: 140, cat: "care" }
+];
+
+// ---------- 2. THINGS THAT CHANGE ----------
+let cart = {};              // example: { 1: 2, 5: 1 } = product 1 two times, product 5 once
+let activeCategory = "all";
+let searchText = "";
+let orderMessage = "";      // shown in the cart after placing an order
+
+// ---------- 3. HELPERS ----------
+function $(id) { return document.getElementById(id); }
+
+function findProduct(id) {
+  return products.find(function (p) { return p.id === id; });
+}
+
+function totalItems() {
+  let count = 0;
+  for (const id in cart) { count += cart[id]; }
+  return count;
+}
+
+function totalPrice() {
+  let sum = 0;
+  for (const id in cart) { sum += findProduct(Number(id)).price * cart[id]; }
+  return sum;
+}
+
+// change = +1 adds one, -1 removes one
+function changeQty(id, change) {
+  const newQty = (cart[id] || 0) + change;
+  if (newQty <= 0) {
+    delete cart[id];
+  } else {
+    cart[id] = newQty;
+  }
+  orderMessage = "";
+  showProducts();
+  showCart();
+}
+
+// ---------- 4. DRAW THE PAGE ----------
+function showCategories() {
+  let html = "";
+  categories.forEach(function (c) {
+    const active = c.key === activeCategory ? " active" : "";
+    html += `<button class="cat${active}" data-cat="${c.key}"><span class="e">${c.emoji}</span>${c.label}</button>`;
+  });
+  $("categories").innerHTML = html;
+}
+
+function showProducts() {
+  // keep only the products that match the category and the search box
+  const list = products.filter(function (p) {
+    const categoryOk = activeCategory === "all" || p.cat === activeCategory;
+    const searchOk = p.name.toLowerCase().includes(searchText.toLowerCase());
+    return categoryOk && searchOk;
+  });
+
+  let html = "";
+  list.forEach(function (p) {
+    const qty = cart[p.id] || 0;
+    const oldPrice = p.mrp > p.price ? `<s>₹${p.mrp}</s>` : "";
+
+    // ADD button if not in cart, otherwise  - 1 +
+    const control = qty === 0
+      ? `<button class="add-btn" data-plus="${p.id}">ADD</button>`
+      : `<div class="stepper">
+           <button data-minus="${p.id}">−</button>
+           <span>${qty}</span>
+           <button data-plus="${p.id}">+</button>
+         </div>`;
+
+    html += `<div class="card">
+               <div class="pic">${p.emoji}</div>
+               <div class="name">${p.name}</div>
+               <div class="weight">${p.weight}</div>
+               <div class="bottom">
+                 <div class="price">₹${p.price}${oldPrice}</div>
+                 ${control}
+               </div>
+             </div>`;
+  });
+
+  if (list.length === 0) {
+    html = `<p class="empty">No products found.</p>`;
+  }
+  $("productGrid").innerHTML = html;
+
+  const category = categories.find(function (c) { return c.key === activeCategory; });
+  $("sectionTitle").textContent = activeCategory === "all" ? "All products" : category.label;
+}
+
+function showCart() {
+  const count = totalItems();
+  $("cartCount").textContent = count;
+
+  if (count === 0) {
+    $("cartBody").innerHTML = `<p class="empty">${orderMessage || "Your cart is empty."}</p>`;
+    $("orderBtn").disabled = true;
+    $("orderBtn").textContent = "Place order";
+    return;
+  }
+
+  let html = "";
+  for (const id in cart) {
+    const p = findProduct(Number(id));
+    html += `<div class="line-item">
+               <div class="e">${p.emoji}</div>
+               <div class="info">${p.name}<small>${p.weight} · ₹${p.price * cart[id]}</small></div>
+               <div class="stepper">
+                 <button data-minus="${p.id}">−</button>
+                 <span>${cart[id]}</span>
+                 <button data-plus="${p.id}">+</button>
+               </div>
+             </div>`;
+  }
+  $("cartBody").innerHTML = html;
+  $("orderBtn").disabled = false;
+  $("orderBtn").textContent = "Place order · ₹" + totalPrice();
+}
+
+// ---------- 5. CLICKS ----------
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+
+  if (btn.dataset.plus)  changeQty(Number(btn.dataset.plus), +1);
+  if (btn.dataset.minus) changeQty(Number(btn.dataset.minus), -1);
+
+  if (btn.dataset.cat) {
+    activeCategory = btn.dataset.cat;
+    showCategories();
+    showProducts();
+  }
+});
+
+$("searchBox").addEventListener("input", function (e) {
+  searchText = e.target.value;
+  showProducts();
+});
+
+// open and close the cart
+function openCart()  { $("drawer").classList.add("show");    $("overlay").classList.add("show"); }
+function closeCart() { $("drawer").classList.remove("show"); $("overlay").classList.remove("show"); }
+$("openCart").addEventListener("click", openCart);
+$("closeCart").addEventListener("click", closeCart);
+$("overlay").addEventListener("click", closeCart);
+
+// place order
+$("orderBtn").addEventListener("click", function () {
+  cart = {};
+  orderMessage = "Order placed! 🛵 Your groceries are on the way.";
+  showProducts();
+  showCart();
+});
+
+// contact form (the browser checks the required fields before this runs)
+$("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const name = $("contactName").value;
+  $("formMsg").textContent = "Thanks, " + name + "! We got your message and will reply soon.";
+  this.reset();
+});
+
+// ---------- 6. START ----------
+showCategories();
+showProducts();
+showCart();
+</script>
 
 </body>
 </html>
