@@ -15,7 +15,7 @@
     <div class="logo">zip<span>mart</span></div>
     <div class="delivery"><b>Delivery in 10 minutes</b></div>
     <div class="search"><input id="searchBox" type="search" placeholder='Search "milk", "chips", "apple"'></div>
-    <button class="cart-btn" id="openCart">🛒 My Cart (<span id="cartCount">0</span>)</button>
+    <button class="cart-btn" id="openCart">My Cart (<span id="cartCount">0</span>)</button>
   </div>
 
   <!-- Navbar -->
@@ -73,7 +73,7 @@
 <aside class="drawer" id="drawer">
   <div class="drawer-head">
     <h3>My Cart</h3>
-    <button class="close" id="closeCart">✕</button>
+    <button class="close" id="closeCart">×</button>
   </div>
   <div class="drawer-body" id="cartBody"></div>
   <div class="drawer-foot">
@@ -84,33 +84,24 @@
 <script>
 // ---------- 1. DATA ----------
 const categories = [
-  { key: "all",     label: "All",              emoji: "🛒" },
-  { key: "fruits",  label: "Fruits & Veggies", emoji: "🥦" },
-  { key: "dairy",   label: "Dairy & Eggs",     emoji: "🥛" },
-  { key: "snacks",  label: "Snacks",           emoji: "🍟" },
-  { key: "drinks",  label: "Cold Drinks",      emoji: "🥤" },
-  { key: "bakery",  label: "Bakery",           emoji: "🍞" },
-  { key: "staples", label: "Atta & Rice",      emoji: "🌾" },
-  { key: "care",    label: "Personal Care",    emoji: "🧼" }
+  { key: "all",    label: "All" },
+  { key: "fruits", label: "Fruits & Veggies" },
+  { key: "dairy",  label: "Dairy & Eggs" },
+  { key: "bakery", label: "Bakery" }
 ];
 
+// "image" is a link (URL) to the picture. To change a picture, paste a new link here.
+// "backup" is the local drawing that shows if the link can't load (for example, no internet).
 const products = [
-  { id: 1,  emoji: "🍌", name: "Fresh Bananas",        weight: "6 pcs",   price: 39,  mrp: 48,  cat: "fruits" },
-  { id: 2,  emoji: "🍎", name: "Royal Gala Apples",    weight: "4 pcs",   price: 149, mrp: 179, cat: "fruits" },
-  { id: 3,  emoji: "🍅", name: "Tomato (Local)",       weight: "500 g",   price: 24,  mrp: 30,  cat: "fruits" },
-  { id: 4,  emoji: "🧅", name: "Onion",                weight: "1 kg",    price: 42,  mrp: 50,  cat: "fruits" },
-  { id: 5,  emoji: "🥛", name: "Toned Milk",           weight: "500 ml",  price: 29,  mrp: 29,  cat: "dairy" },
-  { id: 6,  emoji: "🥚", name: "Farm Eggs",            weight: "6 pcs",   price: 54,  mrp: 60,  cat: "dairy" },
-  { id: 7,  emoji: "🧈", name: "Salted Butter",        weight: "100 g",   price: 58,  mrp: 62,  cat: "dairy" },
-  { id: 8,  emoji: "🧀", name: "Fresh Paneer",         weight: "200 g",   price: 85,  mrp: 95,  cat: "dairy" },
-  { id: 9,  emoji: "🍟", name: "Potato Chips Classic", weight: "52 g",    price: 20,  mrp: 20,  cat: "snacks" },
-  { id: 10, emoji: "🍪", name: "Chocolate Cookies",    weight: "120 g",   price: 35,  mrp: 40,  cat: "snacks" },
-  { id: 11, emoji: "🥤", name: "Cola Bottle",          weight: "750 ml",  price: 40,  mrp: 45,  cat: "drinks" },
-  { id: 12, emoji: "🧃", name: "Orange Juice",         weight: "1 L",     price: 99,  mrp: 120, cat: "drinks" },
-  { id: 13, emoji: "🍞", name: "Brown Bread",          weight: "400 g",   price: 48,  mrp: 52,  cat: "bakery" },
-  { id: 14, emoji: "🌾", name: "Whole Wheat Atta",     weight: "5 kg",    price: 245, mrp: 270, cat: "staples" },
-  { id: 15, emoji: "🍚", name: "Basmati Rice",         weight: "1 kg",    price: 129, mrp: 150, cat: "staples" },
-  { id: 16, emoji: "🧼", name: "Bathing Soap",         weight: "3 x 75g", price: 120, mrp: 140, cat: "care" }
+  { id: 1, name: "Fresh Bananas", weight: "6 pcs",  price: 39, mrp: 48, cat: "fruits",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Banana-Single.jpg?width=300",
+    backup: "images/banana.svg" },
+  { id: 2, name: "Toned Milk",    weight: "500 ml", price: 29, mrp: 29, cat: "dairy",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Milk_glass.jpg?width=300",
+    backup: "images/milk.svg" },
+  { id: 3, name: "Brown Bread",   weight: "400 g",  price: 48, mrp: 52, cat: "bakery",
+    image: "https://commons.wikimedia.org/wiki/Special:FilePath/Fresh_made_bread_05.jpg?width=300",
+    backup: "images/bread.svg" }
 ];
 
 // ---------- 2. THINGS THAT CHANGE ----------
@@ -156,7 +147,7 @@ function showCategories() {
   let html = "";
   categories.forEach(function (c) {
     const active = c.key === activeCategory ? " active" : "";
-    html += `<button class="cat${active}" data-cat="${c.key}"><span class="e">${c.emoji}</span>${c.label}</button>`;
+    html += `<button class="cat${active}" data-cat="${c.key}">${c.label}</button>`;
   });
   $("categories").innerHTML = html;
 }
@@ -184,7 +175,7 @@ function showProducts() {
          </div>`;
 
     html += `<div class="card">
-               <div class="pic">${p.emoji}</div>
+               <div class="pic"><img src="${p.image}" alt="${p.name}" onerror="this.onerror=null; this.src='${p.backup}'"></div>
                <div class="name">${p.name}</div>
                <div class="weight">${p.weight}</div>
                <div class="bottom">
@@ -218,7 +209,7 @@ function showCart() {
   for (const id in cart) {
     const p = findProduct(Number(id));
     html += `<div class="line-item">
-               <div class="e">${p.emoji}</div>
+               <img src="${p.image}" alt="${p.name}" onerror="this.onerror=null; this.src='${p.backup}'">
                <div class="info">${p.name}<small>${p.weight} · ₹${p.price * cart[id]}</small></div>
                <div class="stepper">
                  <button data-minus="${p.id}">−</button>
@@ -262,7 +253,7 @@ $("overlay").addEventListener("click", closeCart);
 // place order
 $("orderBtn").addEventListener("click", function () {
   cart = {};
-  orderMessage = "Order placed! 🛵 Your groceries are on the way.";
+  orderMessage = "Order placed! Your groceries are on the way.";
   showProducts();
   showCart();
 });
